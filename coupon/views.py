@@ -1,3 +1,6 @@
-from django.shortcuts import render
+from django.views.generic import ListView
+from coupon.models import Coupon
 
-# Create your views here.
+
+class CouponListView(ListView):
+    model = Coupon
