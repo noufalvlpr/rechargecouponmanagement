@@ -15,3 +15,16 @@ class BrandCreateView(CreateView):
 
 class CouponListView(ListView):
     model = Coupon
+
+
+class CouponCreateView(CreateView):
+    model = Coupon
+    fields = ["brand", "value"]
+    success_url = "/coupons/"
+
+    def form_valid(self, form):
+        """If the form is valid, save the associated model."""
+        self.object = Coupon.objects.create_coupon(
+            form.cleaned_data["value"], form.cleaned_data["brand"]
+        )
+        return HttpResponseRedirect(self.get_success_url())
