@@ -36,7 +36,7 @@ class Coupon(models.Model):
     @classmethod
     def generate_code(cls, code_length):
         code = "".join(
-            random.choice(string.ascii_letters + string.digits)
+            random.choice(string.ascii_letters.upper() + string.digits)
             for i in range(code_length)
         )
         return code
