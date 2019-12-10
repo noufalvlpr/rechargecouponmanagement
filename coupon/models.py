@@ -28,7 +28,7 @@ class CouponManager(models.Manager):
 
 class Coupon(models.Model):
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE, related_name="coupons")
-    code = models.CharField(max_length=100)
+    code = models.CharField(max_length=100, unique=True)
     value = models.PositiveIntegerField()
 
     objects = CouponManager()
