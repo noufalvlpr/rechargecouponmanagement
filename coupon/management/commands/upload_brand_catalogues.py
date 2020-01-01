@@ -24,11 +24,9 @@ class Command(BaseCommand):
             dynamodb_resource.create_table(
                 AttributeDefinitions=[
                     {"AttributeName": "id", "AttributeType": "N"},
-                    {"AttributeName": "name", "AttributeType": "S"},
                 ],
                 KeySchema=[
                     {"AttributeName": "id", "KeyType": "HASH"},
-                    {"AttributeName": "name", "KeyType": "RANGE"},
                 ],
                 ProvisionedThroughput={"ReadCapacityUnits": 5, "WriteCapacityUnits": 5},
                 TableName=table_name,

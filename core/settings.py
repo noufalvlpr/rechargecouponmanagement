@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'coupon',
     'django_filters',
-
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
