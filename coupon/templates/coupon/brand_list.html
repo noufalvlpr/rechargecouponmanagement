@@ -1,5 +1,11 @@
 {% extends 'coupon/base.html' %}
 
+{% block search %}
+<form class="w-100" action="." method="GET">
+    <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search" name="name" value="{{ request.GET.name }}">
+</form>
+{% endblock search %}
+
 {% block content %}
 <h2>Brands</h2>
 <div class="table-responsive">
