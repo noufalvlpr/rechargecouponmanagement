@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.views.generic import ListView, CreateView
 
-from coupon.filters import BrandFilter
+from coupon.filters import BrandFilter, CouponFilter
 from coupon.models import Coupon, Brand
 
 
@@ -21,6 +21,10 @@ class BrandCreateView(CreateView):
 
 class CouponListView(ListView):
     model = Coupon
+
+    def get_queryset(self):
+        coupon_filter = CouponFilter(self.request.GET, queryset=Coupon.objects.all())
+        return coupon_filter.qs
 
 
 class CouponCreateView(CreateView):
